@@ -18,8 +18,7 @@ curl -Ls https://astral.sh/uv/install.sh | bash
 
 2. Create and sync a virtual environment:
 ```bash
-uv venv
-uv pip install requests tabulate
+uv sync
 ```
 
 3. Activate the virtual environment:
