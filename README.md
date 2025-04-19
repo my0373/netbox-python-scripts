@@ -4,6 +4,17 @@ A set of Python scripts to interact with the NetBox platform using Python.
 
 > **Note:** These scripts have been developed and tested only on **Linux** and **macOS** systems.
 
+📦 GitHub Repository: [https://github.com/my0373/netbox-python-scripts](https://github.com/my0373/netbox-python-scripts)
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Setup](#setup)
+- [Scripts](#scripts)
+  - [api/get_sites.py](#apigetsitespy)
+  - [api/post_new_site-group.py](#apipost_new_site-grouppy)
+- [Troubleshooting](#troubleshooting)
+
 ## Prerequisites
 
 - Python 3.13 (may work on other versions, but has only been tested on 3.13)
@@ -49,7 +60,6 @@ export NETBOX_API_TOKEN="your_api_token_here"
 
 ## Scripts
 
-### Get sites stored in NetBox via the API.
 ### `api/get_sites.py`
 
 This script retrieves a list of DCIM sites from a NetBox instance and prints the results in a table format.
@@ -75,7 +85,7 @@ python api/get_sites.py --hostname 192.168.1.1 --port 8000
 | 1  | Brookside | brookside | Active   | 68Brookside  | Paulton  | York family  | 68 Brookside, Paulton, Paulton, Bristol, BS397YR         |
 +----+-----------+-----------+----------+--------------+----------+--------------+------------------------------------------------------------+
 ```
-### Create a new site group stored in NetBox via the API using POST.
+
 ### `api/post_new_site-group.py`
 
 This script creates a new site group in the NetBox DCIM module using a POST request.
