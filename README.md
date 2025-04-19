@@ -12,7 +12,7 @@ A set of Python scripts to interact with the NetBox platform using Python.
 - [Setup](#setup)
 - [Scripts](#scripts)
   - [api/get_sites.py](#apigetsitespy)
-  - [api/post_new_site-group.py](#apipost_new_site-grouppy)
+  - [api/post_new_site_group.py](#apipost_new_site_grouppy)
 - [Troubleshooting](#troubleshooting)
 
 ## Prerequisites
@@ -86,24 +86,24 @@ python api/get_sites.py --hostname 192.168.1.1 --port 8000
 +----+-----------+-----------+----------+--------------+----------+--------------+------------------------------------------------------------+
 ```
 
-### `api/post_new_site-group.py`
+### `api/post_new_site_group.py`
 
 This script creates a new site group in the NetBox DCIM module using a POST request.
 
 #### Usage
 
 ```bash
-python api/post_new_site-group.py --name "Industrial Sites" --description "The industrial sites"
+python api/post_new_site_group.py --name "Industrial Sites" --description "The industrial sites"
 ```
 
 You can also specify a custom hostname and port:
 ```bash
-python api/post_new_site-group.py --hostname 192.168.1.1 --port 8000 --name "Industrial Sites"
+python api/post_new_site_group.py --hostname 192.168.1.1 --port 8000 --name "Industrial Sites"
 ```
 
 Enable debug mode to print the generated JSON payload before it is sent:
 ```bash
-python api/post_new_site-group.py --name "Industrial Sites" --debug
+python api/post_new_site_group.py --name "Industrial Sites" --debug
 ```
 
 #### Description
