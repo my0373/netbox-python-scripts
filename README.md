@@ -18,7 +18,8 @@ curl -Ls https://astral.sh/uv/install.sh | bash
 
 2. Create and sync a virtual environment:
 ```bash
-uv sync
+uv venv
+uv pip install requests tabulate
 ```
 
 3. Activate the virtual environment:
@@ -49,6 +50,7 @@ export NETBOX_API_TOKEN="your_api_token_here"
 
 ## Scripts
 
+### Get sites stored in NetBox via the API.
 ### `api/get_sites.py`
 
 This script retrieves a list of DCIM sites from a NetBox instance and prints the results in a table format.
@@ -74,6 +76,35 @@ python api/get_sites.py --hostname 192.168.1.1 --port 8000
 | 1  | Brookside | brookside | Active   | 68Brookside  | Paulton  | York family  | 68 Brookside, Paulton, Paulton, Bristol, BS397YR         |
 +----+-----------+-----------+----------+--------------+----------+--------------+------------------------------------------------------------+
 ```
+### Create a new site group stored in NetBox via the API using POST.
+### `api/post_new_site-group.py`
+
+This script creates a new site group in the NetBox DCIM module using a POST request.
+
+#### Usage
+
+```bash
+python api/post_new_site-group.py --name "Industrial Sites" --description "The industrial sites"
+```
+
+You can also specify a custom hostname and port:
+```bash
+python api/post_new_site-group.py --hostname 192.168.1.1 --port 8000 --name "Industrial Sites"
+```
+
+Enable debug mode to print the generated JSON payload before it is sent:
+```bash
+python api/post_new_site-group.py --name "Industrial Sites" --debug
+```
+
+#### Description
+
+- `--name` is required and sets the name of the site group.
+- `--description` is optional and defaults to an empty string.
+- The `slug` is automatically generated from the name by converting it to lowercase and replacing spaces/special characters with hyphens.
+- The script sends the payload using `application/json` with the required API token set via `NETBOX_API_TOKEN`.
+
+If successful, the response will be printed in green. If it fails, the error will be shown in red.
 
 ## Troubleshooting
 
@@ -88,4 +119,3 @@ If the API call fails or the response format is unexpected, verify your hostname
 ---
 
 Enjoy managing your NetBox inventory with simple Python automation!
-
